@@ -1,4 +1,4 @@
-import ContenedorFirebase from "../../contenedores/contenedorFirebase";
+import ContenedorFirebase from "../../contenedores/contenedorFirebase.js";
 
 class CarritoDaoFirebase extends ContenedorFirebase {
   constructor() {
@@ -7,8 +7,7 @@ class CarritoDaoFirebase extends ContenedorFirebase {
   async newCart(){
     const doc = this.collection.doc()
     await doc.create({timestamp:Date.now(), products:[]})
- 
-    console.log(this.collection)        
+     
   }
 
   

@@ -1,17 +1,23 @@
-// import dotenv from "dotenv";
-// dotenv.config();
+import dotenv from "dotenv";
+import path from'path';
+
+const envFile = path.join(process.cwd(), './src/.env')
+console.log('envFile',envFile )
+dotenv.config({ path: envFile });
+console.log('database',process.env.DATABASE )
 
 let ProductoDao;
 let CarritoDao;
 
+console.log('database-Dao',process.env.DATABASE )
 
 switch (process.env.DATABASE) {
   case "firebase":
     const { default: ProductoDaoFirebase } = await import(
-      "./productos/productoDaoFirebase"
+      "./productos/productoDaoFirebase.js"
     );
     const { default: CarritoDaoFirebase } = await import(
-      "./carritos/carritoDaoFirebase"
+      "./carritos/carritoDaoFirebase.js"
     );
 
     ProductoDao = new ProductoDaoFirebase;
@@ -20,10 +26,10 @@ switch (process.env.DATABASE) {
     break;
   case "mongo":
     const { default: ProductoDaoMongo } = await import(
-      "./productos/productoDaoMongo"
+      "./productos/productoDaoMongo.js"
     );
     const { default: CarritoDaoMongo } = await import(
-      "./carritos/carritoDaoMongo"
+      "./carritos/carritoDaoMongo.js"
     );
 
     ProductoDao = new ProductoDaoMongo;

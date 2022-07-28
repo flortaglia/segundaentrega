@@ -1,14 +1,16 @@
-import config from "./config.js";
+import config from "../config.js";
 import mongoose from "mongoose";
 
 await mongoose.connect(config.mongodb.connectionString, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true
 });
+
 console.log('Conexion establecida con la DBMongo')
 
 export default class ContenedorMongo {
   constructor(nameCollection, schema) {
+
     this.collection = mongoose.model(nameCollection, schema);
   }
 

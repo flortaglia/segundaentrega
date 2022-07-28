@@ -7,15 +7,8 @@ class ProductoDaoFirebase extends ContenedorFirebase {
 
   async update(id, title, description, code, price, thumbnail, stock){
     const doc = this.collection.doc(id)
-    doc.title= await doc.update({title})
-    doc.price=await doc.update({price})
-    doc.thumbnail=await doc.update({thumbnail})
-    doc.description=await doc.update({description})
-    doc.code=await doc.update({code})
-    doc.stock=await doc.update({stock})
-    doc.timestamp= Date.now()
-   
-    console.log(this.collection)        
+    await doc.update({title, description, code, price, thumbnail, stock})
+              
   }
   async newProduct(title, description, code, price, thumbnail, stock){
     const doc = this.collection.doc()

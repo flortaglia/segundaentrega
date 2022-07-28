@@ -14,33 +14,18 @@ class ContenedorFirebase {
   }
 
   async getById(id) {
+    console.log('id', id)
     const doc = await this.collection.doc(id).get();
     const response = doc.data();
     return response;
   }
-  // async getAll(){
-  //   const docSnapshot = await this.collection.get()
-  //   const docs = docSnapshot.docs;
-
-  //   const response = docs.map((doc) => ({
-  //     id: doc.id,
-  //     title: doc.data().title,
-  //     description: doc.data().description,
-  //     code:doc.data().code,
-  //     price:doc.data().price,
-  //     thumbnail:doc.data().thumbnail,
-  //     timestamp:doc.data().timestamp,
-  //     stock:doc.data().stock
-
-  //   }));
-  // }
-
+ 
   async getAll(){
     const docSnapshot = await this.collection.get()
     const docs = docSnapshot.docs;
 
     const response = docs.map((doc) =>{
-      result = doc.data();
+      const result = doc.data();
       result.id = doc.id;
       return result;
     });

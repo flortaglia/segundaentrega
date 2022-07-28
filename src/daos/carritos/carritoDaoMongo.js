@@ -1,4 +1,4 @@
-import ContenedorMongo from "../../contenedores/contenedorMongo";
+import ContenedorMongo from "../../contenedores/contenedorMongo.js";
 
 class CarritoDaoMongo extends ContenedorMongo {
   constructor() {

@@ -1,7 +1,5 @@
 import express from 'express';
-import dotenv from "dotenv";
-dotenv.config();
-console.log('database',process.env.DATABASE )
+
 const app = express()
 import rutas from './routes/index.js';
 const puerto =process.env.PORT||8080     
