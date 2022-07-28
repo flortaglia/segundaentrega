@@ -4,12 +4,12 @@ import mongoose from "mongoose";
 class ProductoDaoMongo extends ContenedorMongo {
   constructor() {
     super("productos", new mongoose.Schema({
-      title: { type: String, require: true, max: 100 },
+      title: { type: String, require: true, max: 200 },
       description: { type: String, require: true, max: 200 },
-      code:{ type: Number, require: true, max: 100 },
-      price:{ type: Float, require: true},
-      thumbnail:{ type: String, require: true, max: 100 },
-      timestamp:doc.data().timestamp,
+      code:{ type: Number, require: true},
+      price:{ type: Number, require: true},
+      thumbnail:{ type: String, require: true },
+      timestamp:{ type: Date, require: true },
       stock:{ type: Number, require: true}
     })
     )

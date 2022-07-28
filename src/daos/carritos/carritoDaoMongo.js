@@ -1,4 +1,5 @@
 import ContenedorMongo from "../../contenedores/contenedorMongo.js";
+import mongoose from "mongoose";
 
 class CarritoDaoMongo extends ContenedorMongo {
   constructor() {
